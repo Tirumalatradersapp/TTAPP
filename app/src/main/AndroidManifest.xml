@@ -16,7 +16,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".Splash" />
-        <activity android:name=".Login"></activity>
+        <activity android:name=".Login" />
+        <activity android:name=".ForgotPassword" />
+        <activity android:name=".Signup" />
+        <activity android:name=".Home"></activity>
     </application>
 
 </manifest>
