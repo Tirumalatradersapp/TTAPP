@@ -1,3 +1,51 @@
 <resources>
-    <string name="app_name">TTAPP</string>
+    <string name="app_name">Ecommerce</string>
+
+    <string name="tirumala_traders">Tirumala Traders</string>
+
+    <!--login&Signup-->
+    <string name="name">Name</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="email">Email</string>
+    <string name="firm_name">Firm Name</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="district">District</string>
+    <string name="mandal">Mandal</string>
+    <string name="village">Village</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="click_here">Click Here</string>
+    <string name="dont_account">Don\'t have an account?</string>
+    <string name="signup_here">Signup Here</string>
+    <string name="signup">Signup</string>
+
+
+    <string name="my_orders">My Orders</string>
+    <string name="my_cart">My Cart</string>
+    <string name="logout">Logout</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <!--forgot password-->
+    <string name="old_password">Old Password</string>
+    <string name="new_password">New Password</string>
+    <string name="confirm_new_password">Confirm New Password</string>
+    <string name="back_to">Back to</string>
+
+
+    <!--Buttons-->
+    <string name="login">Login</string>
+    <string name="update">Update</string>
+
+    <!-- nav drawer items -->
+    <string-array name="drawerItems">
+        <item>Home</item>
+        <item>My Cart</item>
+        <item>My Orders</item>
+        <item>Logout</item>
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
