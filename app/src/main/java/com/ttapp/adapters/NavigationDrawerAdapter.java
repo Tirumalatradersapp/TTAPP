@@ -1,4 +1,4 @@
-package com.ttapp;
+package com.ttapp.adapters;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.ttapp.R;
 
 /**
  * Created by halya on 2/7/17.

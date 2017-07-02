@@ -15,7 +15,7 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.ttapp.NavigationDrawerAdapter;
+import com.ttapp.adapters.NavigationDrawerAdapter;
 import com.ttapp.R;
 import com.ttapp.fragments.HomeFragment;
 import com.ttapp.interfaces.NavDrawerCallback;
