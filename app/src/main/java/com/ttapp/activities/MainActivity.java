@@ -1,13 +1,15 @@
-package com.ttapp;
+package com.ttapp.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class ForgotPassword extends AppCompatActivity {
+import com.ttapp.R;
+
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_forgot_password);
+        setContentView(R.layout.activity_main);
     }
 }

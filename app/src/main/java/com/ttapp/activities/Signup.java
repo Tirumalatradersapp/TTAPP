@@ -1,7 +1,9 @@
-package com.ttapp;
+package com.ttapp.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.ttapp.R;
 
 public class Signup extends AppCompatActivity {
 

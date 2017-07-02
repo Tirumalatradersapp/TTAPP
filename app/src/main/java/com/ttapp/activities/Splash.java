@@ -1,10 +1,12 @@
-package com.ttapp;
+package com.ttapp.activities;
 
 import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.WindowManager;
+
+import com.ttapp.R;
 
 public class Splash extends AppCompatActivity {
 

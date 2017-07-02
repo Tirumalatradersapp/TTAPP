@@ -1,4 +1,4 @@
-package com.ttapp;
+package com.ttapp.activities;
 
 import android.content.Intent;
 import android.os.Build;
@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
+import com.ttapp.R;
 import com.ttapp.utils.Validations;
 
 public class Login extends AppCompatActivity implements View.OnClickListener {
