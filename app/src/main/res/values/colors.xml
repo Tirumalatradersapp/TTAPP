@@ -8,5 +8,9 @@
     <color name="dark_orange">#FF4500</color>
     <color name="orange">#fc791a</color>
     <color name="silver">#C0C0C0</color>
+    <color name="light_gray">#808080</color>
+    <color name="lighter_gray">#cccccc</color>
+    <color name="agri_green">#A8CF45</color>
+
 
 </resources>

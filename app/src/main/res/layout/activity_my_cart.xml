@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_my_cart"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ttapp.activities.MyCart">
+
+    <RelativeLayout
+        android:id="@+id/cart_app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="?android:actionBarSize"
+        android:background="@color/colorPrimaryDark"
+        android:elevation="@dimen/dp_5">
+
+        <ImageView
+            android:id="@+id/cart_menu_icon"
+            android:layout_width="@dimen/dp_35"
+            android:layout_height="@dimen/dp_35"
+            android:padding="4dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:src="@mipmap/ic_back"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/review_order"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:textSize="@dimen/sp_18"
+            android:textColor="@android:color/white"/>
+    </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/cart_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/cart_app_bar"
+        android:scrollbars="vertical"
+        android:background="@android:color/white"/>
+
+
+</RelativeLayout>

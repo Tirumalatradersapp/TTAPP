@@ -107,9 +107,9 @@ public class Home extends AppCompatActivity implements NavDrawerCallback,Adapter
                 break;
             case 1:
                 isHome = false;
-               /* Intent intent = new Intent(this,MyCart.class);
+                Intent intent = new Intent(this,MyCart.class);
                 startActivity(intent);
-                overridePendingTransition(R.anim.anim_left_to_right, R.anim.anim_right_to_left);*/
+//                overridePendingTransition(R.anim.anim_left_to_right, R.anim.anim_right_to_left);
                 break;
             case 2:
                 isHome = false;
