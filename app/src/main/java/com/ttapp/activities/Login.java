@@ -9,16 +9,28 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ttapp.R;
+import com.ttapp.pojos.login.LoginResponse;
+import com.ttapp.pojos.registation.registrationParams.Data;
+import com.ttapp.pojos.registation.registrationParams.RegistrationParams;
+import com.ttapp.pojos.registation.registrationResponse.RegisterResponse;
+import com.ttapp.utils.APIInterface;
 import com.ttapp.utils.NetworkDetector;
+import com.ttapp.utils.RestClient;
 import com.ttapp.utils.Validations;
+
+import retrofit.Call;
+import retrofit.Callback;
+import retrofit.Response;
 
 public class Login extends AppCompatActivity implements View.OnClickListener {
 
@@ -28,6 +40,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     private TextInputLayout mobileLayout,passwordLayout;
     private NetworkDetector networkDetector;
     private ProgressDialog loginDialog;
+    private static final String TAG=Login.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,8 +102,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         }else if(password.getText().toString().length()==0){
             passwordLayout.setError("Enter Valid Password");
         } else {
-            sendDataToServer();
-
+            checkInternet();
         }
         mobile.addTextChangedListener(new TextWatcher() {
             @Override
@@ -127,16 +139,74 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         });
     }
 
-    private void sendDataToServer() {
+    private void checkInternet() {
         if(networkDetector.isConnected()){
             loginDialog = ProgressDialog.show(this,"",getResources()
                     .getString(R.string.progress_dialog_text));
-            startActivity(new Intent(this,Home.class));
-            this.finish();
-        }else {
-            Toast.makeText(this,"No Network",Toast.LENGTH_SHORT).show();
-        }
+            sendDataToServer();
 
+        }else {
+            showInternetDialog();
+        }
+    }
+
+    private void sendDataToServer() {
+        Data data=new Data();
+//        data.setUserName(name.getText().toString());
+        data.setPhonrNumber(Integer.valueOf(mobile.getText().toString()));
+//        data.setEmailId(email.getText().toString());
+//        data.setFirmName(firmName.getText().toString());
+        data.setPassword(password.getText().toString());
+//        data.setDistrictName(disrict.getText().toString());
+//        data.setMondalName(mandal.getText().toString());
+//        data.setVillageName(village.getText().toString());
+//        data.setId(0);
+//        data.setAddress(address.getText().toString());
+//        data.setUserType("customer");
+
+        final RegistrationParams loginParams=new RegistrationParams();
+        loginParams.setData(data);
+        APIInterface apiInterface= RestClient.getClient().create(APIInterface.class);
+        Call<LoginResponse> call=apiInterface.login("application/json",loginParams);
+        call.enqueue(new Callback<LoginResponse>() {
+            @Override
+            public void onResponse(Response<LoginResponse> response) {
+                closeLoginDialog();
+                startActivity(new Intent(Login.this,Home.class));
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+                closeLoginDialog();
+                Log.i(TAG, "onFailure: >>>"+t.toString());
+
+            }
+        });
+
+    }
+
+    private void showInternetDialog() {
+        final TextView ok;
+        final android.support.v7.app.AlertDialog.Builder addRecordDialog = new android.support.v7.app.AlertDialog.Builder(this);
+        LayoutInflater factory = LayoutInflater.from(this);
+        final View f = factory.inflate(R.layout.no_internet, null);
+
+//        addRecordDialog.setTitle("Please Add The Record Here");
+        addRecordDialog.setView(f);
+
+        final android.support.v7.app.AlertDialog alert = addRecordDialog.create();
+
+        alert.show();
+        alert.setCancelable(false);
+        alert.setCanceledOnTouchOutside(false);
+
+        ok=(TextView)f.findViewById(R.id.ok);
+        ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                alert.dismiss();
+            }
+        });
     }
 
     private void closeLoginDialog(){
