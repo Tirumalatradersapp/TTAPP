@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Ecommerce</string>
+    <string name="app_name">Tirumala Traders</string>
 
     <string name="tirumala_traders">Tirumala Traders</string>
 
@@ -55,5 +55,8 @@
     <string name="network_error">Network Error</string>
     <string name="no_internet">Please Check Your Internet Connection</string>
     <string name="ok">OK</string>
+
+    <!--home-->
+    <string name="shop_by_category">Shop By Category</string>
 
 </resources>

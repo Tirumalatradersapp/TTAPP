@@ -141,9 +141,10 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
     private void checkInternet() {
         if(networkDetector.isConnected()){
-            loginDialog = ProgressDialog.show(this,"",getResources()
-                    .getString(R.string.progress_dialog_text));
-            sendDataToServer();
+//            loginDialog = ProgressDialog.show(this,"",getResources()
+//                    .getString(R.string.progress_dialog_text));
+//            sendDataToServer();
+            startActivity(new Intent(Login.this,Home.class));
 
         }else {
             showInternetDialog();
@@ -153,7 +154,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     private void sendDataToServer() {
         Data data=new Data();
 //        data.setUserName(name.getText().toString());
-        data.setPhonrNumber(Integer.valueOf(mobile.getText().toString()));
+        data.setPhonrNumber(Integer.parseInt(mobile.getText().toString()));
 //        data.setEmailId(email.getText().toString());
 //        data.setFirmName(firmName.getText().toString());
         data.setPassword(password.getText().toString());

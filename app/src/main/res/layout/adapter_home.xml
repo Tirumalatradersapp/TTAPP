@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/adapter_product_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:padding="@dimen/dp_10"
+        android:background="@drawable/rectangle_gray">
+
+        <ImageView
+            android:id="@+id/adapter_products_image"
+            android:layout_width="@dimen/dp_150"
+            android:layout_height="@dimen/dp_60"
+            android:src="@drawable/peanuts"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Peanuts"
+            android:layout_below="@+id/adapter_products_image"
+            android:layout_centerHorizontal="true"
+            android:textSize="@dimen/sp_14"
+            android:textColor="@color/light_gray"
+            android:id="@+id/adapter_cat_name"/>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>
