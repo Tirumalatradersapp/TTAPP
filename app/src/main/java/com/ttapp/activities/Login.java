@@ -1,5 +1,6 @@
 package com.ttapp.activities;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Build;
 import android.support.design.widget.TextInputLayout;
@@ -13,8 +14,10 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.ttapp.R;
+import com.ttapp.utils.NetworkDetector;
 import com.ttapp.utils.Validations;
 
 public class Login extends AppCompatActivity implements View.OnClickListener {
@@ -23,6 +26,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     private LinearLayout forgotPassword,signupLayout;
     private EditText mobile,password;
     private TextInputLayout mobileLayout,passwordLayout;
+    private NetworkDetector networkDetector;
+    private ProgressDialog loginDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +50,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
 
     private void initializeViews() {
+        networkDetector=new NetworkDetector(this);
         login=(Button)findViewById(R.id.login_button);
         signupLayout=(LinearLayout)findViewById(R.id.login_signup_layout);
         forgotPassword=(LinearLayout)findViewById(R.id.login_forgot_layout);
@@ -83,8 +89,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         }else if(password.getText().toString().length()==0){
             passwordLayout.setError("Enter Valid Password");
         } else {
-            startActivity(new Intent(this,Home.class));
-            this.finish();
+            sendDataToServer();
+
         }
         mobile.addTextChangedListener(new TextWatcher() {
             @Override
@@ -119,5 +125,26 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                 passwordLayout.setError(null);
             }
         });
+    }
+
+    private void sendDataToServer() {
+        if(networkDetector.isConnected()){
+            loginDialog = ProgressDialog.show(this,"",getResources()
+                    .getString(R.string.progress_dialog_text));
+            startActivity(new Intent(this,Home.class));
+            this.finish();
+        }else {
+            Toast.makeText(this,"No Network",Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    private void closeLoginDialog(){
+        if(loginDialog!=null){
+            if(loginDialog.isShowing()){
+                loginDialog.dismiss();
+                loginDialog=null;
+            }
+        }
     }
 }

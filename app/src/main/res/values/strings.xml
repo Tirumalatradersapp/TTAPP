@@ -13,6 +13,7 @@
     <string name="district">District</string>
     <string name="mandal">Mandal</string>
     <string name="village">Village</string>
+    <string name="address">Address</string>
     <string name="forgot_password">Forgot Password?</string>
     <string name="click_here">Click Here</string>
     <string name="dont_account">Don\'t have an account?</string>
@@ -50,4 +51,9 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="review_order">Review Order</string>
+    <string name="progress_dialog_text">Please Wait...</string>
+    <string name="network_error">Network Error</string>
+    <string name="no_internet">Please Check Your Internet Connection</string>
+    <string name="ok">OK</string>
+
 </resources>
