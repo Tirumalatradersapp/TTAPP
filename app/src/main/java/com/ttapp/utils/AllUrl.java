@@ -5,7 +5,7 @@ package com.ttapp.utils;
  */
 
 public class AllUrl {
-    public static final String REGISTRATION="retailer/saveUser";
+    public static final String REGISTRATION="retailer/signup";
     public static final String LOGIN="retailer/login";
 
 }

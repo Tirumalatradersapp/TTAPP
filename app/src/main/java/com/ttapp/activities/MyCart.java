@@ -1,17 +1,21 @@
 package com.ttapp.activities;
 
+import android.content.Intent;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.view.WindowManager;
+import android.widget.RelativeLayout;
 
 import com.ttapp.R;
 import com.ttapp.adapters.CartAdapter;
 
-public class MyCart extends AppCompatActivity {
+public class MyCart extends AppCompatActivity implements View.OnClickListener{
     private RecyclerView cartrecycler;
+    private RelativeLayout cartBottomLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,12 +23,20 @@ public class MyCart extends AppCompatActivity {
         setContentView(R.layout.activity_my_cart);
 
         initializeViews();
+        initializeClickListeners();
 //        fullScreen();
         showOrderDetails();
     }
 
+
+
     private void initializeViews() {
         cartrecycler=(RecyclerView)findViewById(R.id.cart_recycler);
+        cartBottomLayout=(RelativeLayout)findViewById(R.id.cart_bottom_layout);
+    }
+
+    private void initializeClickListeners() {
+        cartBottomLayout.setOnClickListener(this);
     }
 
     private void fullScreen() {
@@ -47,4 +59,12 @@ public class MyCart extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.cart_bottom_layout:
+                Intent checkout=new Intent(this,CheckOut.class);
+                startActivity(checkout);
+        }
+    }
 }

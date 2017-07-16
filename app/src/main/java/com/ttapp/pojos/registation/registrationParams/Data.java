@@ -23,9 +23,9 @@ public class Data {
     @SerializedName("password")
     @Expose
     private String password;
-    @SerializedName("phonrNumber")
+    @SerializedName("phoneNumber")
     @Expose
-    private Integer phonrNumber;
+    private Long phoneNumber;
     @SerializedName("userName")
     @Expose
     private String userName;
@@ -35,6 +35,9 @@ public class Data {
     @SerializedName("villageName")
     @Expose
     private String villageName;
+    @SerializedName("address")
+    @Expose
+    private String address;
 
     public String getDistrictName() {
         return districtName;
@@ -84,12 +87,12 @@ public class Data {
         this.password = password;
     }
 
-    public Integer getPhonrNumber() {
-        return phonrNumber;
+    public Long getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setPhonrNumber(Integer phonrNumber) {
-        this.phonrNumber = phonrNumber;
+    public void setPhoneNumber(Long phonrNumber) {
+        this.phoneNumber = phonrNumber;
     }
 
     public String getUserName() {
@@ -114,6 +117,14 @@ public class Data {
 
     public void setVillageName(String villageName) {
         this.villageName = villageName;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
 }

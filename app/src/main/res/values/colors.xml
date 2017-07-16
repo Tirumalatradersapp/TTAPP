@@ -13,6 +13,8 @@
     <color name="agri_green">#A8CF45</color>
     <color name="darker_gray">#6e6e6e</color>
     <color name="gray">#D3D3D3</color>
+    <color name="sky_blue">#1E88E5</color>
+    <color name="light_black">#424242</color>
 
 
     <array name="array_dot_active">

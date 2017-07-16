@@ -58,5 +58,14 @@
 
     <!--home-->
     <string name="shop_by_category">Shop By Category</string>
+    <string name="add">Add</string>
 
+    <!--products-->
+    <string name="goto_cart">Go To Cart</string>
+    <string name="check_out">CheckOut</string>
+    <string name="total_rs">Total: Rs</string>
+    <string name="continnue">CONTINUE</string>
+    <string name="thank_you">Thank You</string>
+    <string name="continue_shopping">Continue Shopping</string>
+    <string name="order_placed">Order Successfully Placed</string>
 </resources>

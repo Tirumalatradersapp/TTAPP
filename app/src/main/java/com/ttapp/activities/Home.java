@@ -15,6 +15,7 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.ttapp.MyOrders;
 import com.ttapp.adapters.NavigationDrawerAdapter;
 import com.ttapp.R;
 import com.ttapp.fragments.HomeFragment;
@@ -38,19 +39,6 @@ public class Home extends AppCompatActivity implements NavDrawerCallback,Adapter
         initializeDrawerAdapter();
         initializeEventListeners();
         loadDefaultFragment();
-        fullScreen();
-    }
-
-
-    private void fullScreen() {
-           /*to make the screen as full screen*/
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            getWindow().setStatusBarColor(getResources().getColor(R.color.light_orange));
-        }
     }
 
     private void initializeViews() {
@@ -113,6 +101,8 @@ public class Home extends AppCompatActivity implements NavDrawerCallback,Adapter
                 break;
             case 2:
                 isHome = false;
+                Intent myOrders=new Intent(this, MyOrders.class);
+                startActivity(myOrders);
               /*  Intent intent1 = new Intent(this,MyOrders.class);
                 startActivity(intent1);
                 overridePendingTransition(R.anim.anim_left_to_right, R.anim.anim_right_to_left);*/

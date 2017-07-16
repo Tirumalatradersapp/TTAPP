@@ -298,15 +298,14 @@ public class Signup extends AppCompatActivity implements View.OnClickListener{
     private void sendDataToServer() {
         Data data=new Data();
         data.setUserName(name.getText().toString());
-        data.setPhonrNumber(Integer.valueOf(mobile.getText().toString()));
+        data.setPhoneNumber(Long.parseLong(mobile.getText().toString()));
         data.setEmailId(email.getText().toString());
         data.setFirmName(firmName.getText().toString());
         data.setPassword(password.getText().toString());
         data.setDistrictName(disrict.getText().toString());
         data.setMondalName(mandal.getText().toString());
         data.setVillageName(village.getText().toString());
-        data.setId(0);
-//        data.setAddress(address.getText().toString());
+        data.setAddress(address.getText().toString());
         data.setUserType("customer");
 
         final RegistrationParams registrationParams=new RegistrationParams();
@@ -317,7 +316,12 @@ public class Signup extends AppCompatActivity implements View.OnClickListener{
             @Override
             public void onResponse(Response<RegisterResponse> response) {
                 closeProgressDialog();
-                startActivity(new Intent(Signup.this,Login.class));
+                if(response.body().getStatus().equals(200)){
+                    Validations.toast(Signup.this,response.body().getMessage());
+                    startActivity(new Intent(Signup.this,Login.class));
+                }else {
+                    Validations.toast(Signup.this,response.body().getMessage());
+                }
             }
 
             @Override

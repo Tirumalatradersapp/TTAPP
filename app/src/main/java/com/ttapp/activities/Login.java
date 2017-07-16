@@ -141,10 +141,10 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
     private void checkInternet() {
         if(networkDetector.isConnected()){
-//            loginDialog = ProgressDialog.show(this,"",getResources()
-//                    .getString(R.string.progress_dialog_text));
-//            sendDataToServer();
-            startActivity(new Intent(Login.this,Home.class));
+            loginDialog = ProgressDialog.show(this,"",getResources()
+                    .getString(R.string.progress_dialog_text));
+            sendDataToServer();
+//            startActivity(new Intent(Login.this,Home.class));
 
         }else {
             showInternetDialog();
@@ -154,10 +154,10 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     private void sendDataToServer() {
         Data data=new Data();
 //        data.setUserName(name.getText().toString());
-        data.setPhonrNumber(Integer.parseInt(mobile.getText().toString()));
+//        data.setPhonrNumber(Integer.parseInt(mobile.getText().toString()));
 //        data.setEmailId(email.getText().toString());
 //        data.setFirmName(firmName.getText().toString());
-        data.setPassword(password.getText().toString());
+//        data.setPassword(password.getText().toString());
 //        data.setDistrictName(disrict.getText().toString());
 //        data.setMondalName(mandal.getText().toString());
 //        data.setVillageName(village.getText().toString());
@@ -165,7 +165,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 //        data.setAddress(address.getText().toString());
 //        data.setUserType("customer");
 
-        final RegistrationParams loginParams=new RegistrationParams();
+       /* final RegistrationParams loginParams=new RegistrationParams();
         loginParams.setData(data);
         APIInterface apiInterface= RestClient.getClient().create(APIInterface.class);
         Call<LoginResponse> call=apiInterface.login("application/json",loginParams);
@@ -173,7 +173,12 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             @Override
             public void onResponse(Response<LoginResponse> response) {
                 closeLoginDialog();
-                startActivity(new Intent(Login.this,Home.class));
+                if(response.body().getStatus().equals(200)){
+                    Validations.toast(this,response.body().getMessage());
+                    startActivity(new Intent(Login.this,Home.class));
+                }else {
+                    Validations.toast(this,response.body().getMessage());
+                }
             }
 
             @Override
@@ -182,7 +187,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                 Log.i(TAG, "onFailure: >>>"+t.toString());
 
             }
-        });
+        });*/
 
     }
 

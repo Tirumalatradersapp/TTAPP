@@ -13,8 +13,7 @@ import retrofit.Retrofit;
 
 public class RestClient {
 
-    public static String baseUrl = "http://192.168.0.5:8080/";     //production url
-//public static String baseUrl = "http://localhost:8080/";     //production url
+    public static String baseUrl = "http://192.168.0.4:8080/";     //production url
     public static Retrofit retrofit = null;
 
 

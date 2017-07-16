@@ -31,6 +31,20 @@
             android:textSize="@dimen/sp_18"
             android:textColor="@android:color/white"/>
     </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/cart_bottom_layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:layout_alignParentBottom="true"
+        android:background="@color/light_black">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/check_out"
+            android:textSize="@dimen/sp_18"
+            android:textColor="@android:color/white"/>
+    </RelativeLayout>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/cart_recycler"
@@ -38,6 +52,8 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/cart_app_bar"
         android:scrollbars="vertical"
+        android:layout_above="@+id/cart_bottom_layout"
+        android:layout_marginBottom="@dimen/dp_10"
         android:background="@android:color/white"/>
 
 
